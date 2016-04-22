@@ -409,7 +409,7 @@ public final class Status {
     if (status.description == null) {
       return status.code.toString();
     } else {
-      return status.code + ": " + status.description;
+      return status.description;
     }
   }
 

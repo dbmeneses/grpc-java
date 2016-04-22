@@ -50,11 +50,17 @@ public class StatusTest {
   @Test
   public void verifyExceptionMessage() {
     assertEquals("UNKNOWN", Status.UNKNOWN.asRuntimeException().getMessage());
-    assertEquals("CANCELLED: This is a test",
+    assertEquals("This is a test",
         Status.CANCELLED.withDescription("This is a test").asRuntimeException().getMessage());
     assertEquals("UNKNOWN", Status.UNKNOWN.asException().getMessage());
-    assertEquals("CANCELLED: This is a test",
+    assertEquals("This is a test",
         Status.CANCELLED.withDescription("This is a test").asException().getMessage());
+  }
+
+  @Test
+  public void verifyExceptionStatus() {
+    assertEquals(Status.UNKNOWN, Status.UNKNOWN.asRuntimeException().getStatus());
+    assertEquals(Status.CANCELLED, Status.CANCELLED.asRuntimeException().getStatus());
   }
 
   @Test

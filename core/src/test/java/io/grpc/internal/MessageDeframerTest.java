@@ -245,7 +245,7 @@ public class MessageDeframerTest {
     SizeEnforcingInputStream stream = new MessageDeframer.SizeEnforcingInputStream(in, 2);
 
     thrown.expect(StatusRuntimeException.class);
-    thrown.expectMessage("INTERNAL: Compressed frame exceeds");
+    thrown.expectMessage("Compressed frame exceeds");
 
     while (stream.read() != -1) {}
 
@@ -284,7 +284,7 @@ public class MessageDeframerTest {
     byte[] buf = new byte[10];
 
     thrown.expect(StatusRuntimeException.class);
-    thrown.expectMessage("INTERNAL: Compressed frame exceeds");
+    thrown.expectMessage("Compressed frame exceeds");
 
     stream.read(buf, 0, buf.length);
 
@@ -321,7 +321,7 @@ public class MessageDeframerTest {
     SizeEnforcingInputStream stream = new MessageDeframer.SizeEnforcingInputStream(in, 2);
 
     thrown.expect(StatusRuntimeException.class);
-    thrown.expectMessage("INTERNAL: Compressed frame exceeds");
+    thrown.expectMessage("Compressed frame exceeds");
 
     stream.skip(4);
 
