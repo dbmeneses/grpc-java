@@ -128,6 +128,8 @@ public abstract class AbstractServerStream<IdT> extends AbstractStream<IdT>
     stashedTrailers.put(Status.CODE_KEY, status);
     if (status.getDescription() != null) {
       stashedTrailers.put(Status.MESSAGE_KEY, status.getDescription());
+    } else if (status.getCause() != null && status.getCause().getMessage() != null) {
+      stashedTrailers.put(Status.MESSAGE_KEY, status.getCause().getMessage());
     }
   }
 
